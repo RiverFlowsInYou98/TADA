@@ -13,6 +13,7 @@ More detailed instructions will be available upon publication.
 
 ## Citation
 
+```bibtex
 @article{liu2025time,
   title={Time-Averaged Drift Approximations are Inconsistent for Inference in Drift Diffusion Models},
   author={Liu, Sicheng and Fengler, Alexander and Frank, Michael J and Harrison, Matthew T},
