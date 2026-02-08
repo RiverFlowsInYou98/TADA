@@ -175,3 +175,7 @@ cython_debug/
 
 
 # custom ignore
+
+addm/param_recovery_old.ipynb
+**.png
+settings.json
