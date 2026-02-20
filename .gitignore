@@ -179,3 +179,6 @@ cython_debug/
 addm/param_recovery_old.ipynb
 **.png
 settings.json
+
+misc/
+andrew_test/
