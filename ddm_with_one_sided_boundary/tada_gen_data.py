@@ -2,7 +2,7 @@ import numpy as np
 import time
 import pickle
 import argparse
-from efficient_fpt.models import DDModel
+from efpt.models import DDModel
 
 class ExampleModel(DDModel):
     def __init__(self, mu, b, T):
