@@ -2,7 +2,7 @@ import numpy as np
 import time
 import pickle
 import argparse
-from efficient_fpt.models import DDModel
+from efpt.models import DDModel
 
 class ExampleModel(DDModel):
     def __init__(self, mu, b, T):
@@ -18,6 +18,7 @@ class ExampleModel(DDModel):
     def diffusion_coeff(self, X: float, t: float) -> float:
         return self.sigma
 
+    @property
     def is_update_vectorizable(self) -> bool:
         return True
 
@@ -42,9 +43,12 @@ if __name__ == '__main__':
     model = ExampleModel(mu=args.mu, b=args.b, T=args.T)
 
     start_time = time.time()
-    fp_times, np_poss = model.simulate_fptd_tillT(T=args.T_max, dt=args.dt, num=args.num)
+    rt, choice, _ = model.simulate_fpt(num=args.num, T=args.T_max, dt=args.dt)
     end_time = time.time()
 
+    terminated = rt > 0
+    fp_times = rt[terminated]
+    np_poss = choice[terminated]
     num_fpt = len(fp_times)
     print('Number of FPT data:', num_fpt)
     print(f'Simulation takes {end_time - start_time:.2f} seconds.')
