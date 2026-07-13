@@ -1,11 +1,14 @@
 # Time-Averaged Drift Approximations are Inconsistent for Inference in Drift Diffusion Models
 
-This repository contains code and examples from the paper:  
-[*Time-Averaged Drift Approximations are Inconsistent for Inference in Drift Diffusion Models*](https://arxiv.org/abs/2512.10250).
+This repository contains the code and examples accompanying the paper  
+*Time-Averaged Drift Approximations Are Inconsistent for Inference in Drift Diffusion Models*:
+
+- [arXiv preprint](https://arxiv.org/abs/2512.10250)
+- [Published article](https://www.sciencedirect.com/science/article/pii/S0022249626000350)
 
 ## Installation
 
-This project depends on the [efpt](https://github.com/RiverFlowsInYou98/efficient-fpt) package for efficient first-passage time computations. 
+This project depends on the [efpt](https://github.com/RiverFlowsInYou98/efficient-fpt) package for efficient first-passage time computations.
 
 ## Repository Structure
 
@@ -14,13 +17,13 @@ This project depends on the [efpt](https://github.com/RiverFlowsInYou98/efficien
 DDM with a one-sided absorbing boundary. Demonstrates that TADA converges to a biased limit ($\tilde\mu \neq \mu$) while MLE recovers the true parameter.
 
 - `tada_gen_data.py` — Simulate first-passage time data.
-- `tada_mle.ipynb` — Compare TADA MLE vs exact MLE.
+- `tada_mle.ipynb` — Compare TADA-based "MLE" vs generic MLE.
 
 ### `ddm_with_double_sided_boundary/`
 
 DDM with double-sided (symmetric) boundaries and alternating drift stages.
 
-- `tada_mle.ipynb` — Compare TADA MLE vs exact MLE for multi-stage models.
+- `tada_mle.ipynb` — Compare TADA-based "MLE" vs generic MLE for multi-stage models.
 
 ### `addm/inconsistency/`
 
@@ -31,7 +34,7 @@ Parameter recovery experiments for the attentional DDM (aDDM), sweeping one para
 
 Subfolders: `varying_a/`, `varying_eta/`, `varying_kappa/`, `varying_x0/`. 
 
-In each experiment, three nuisance parameters are fixed, and the relationship between the varied parameter and the asymptotic bias of the recovery methods is studied.
+In each experiment, three nuisance parameters are fixed, and the relationship between the varied parameter and the asymptotic bias of the recovery methods is studied. The associated paper reports `varying_eta/` results only.
 
 Shared utilities are in `addm/shared.py`.
 
@@ -44,17 +47,20 @@ Demonstrates that TADA produces incorrect hypothesis testing results when compar
 
 ## License
 
-[MIT License](https://opensource.org/licenses/MIT)
+This project is licensed under the [MIT License](LICENSE).
 
 ## Citation
 If this repository is useful for your research, please cite the associated paper:
 
 ```bibtex
-@article{liu2025time,
-  title={Time-Averaged Drift Approximations are Inconsistent for Inference in Drift Diffusion Models},
+@article{liu2026time,
+  title={Time-averaged drift approximations are inconsistent for inference in drift diffusion models},
   author={Liu, Sicheng and Fengler, Alexander and Frank, Michael J and Harrison, Matthew T},
-  journal={arXiv preprint arXiv:2512.10250},
-  year={2025}
+  journal={Journal of Mathematical Psychology},
+  volume={130},
+  pages={103004},
+  year={2026},
+  publisher={Elsevier}
 }
 ```
 The likelihood computation methods in this repository are developed and implemented in [efpt](https://github.com/RiverFlowsInYou98/efficient-fpt). If you use those components, please also cite:
